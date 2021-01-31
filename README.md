@@ -11,9 +11,7 @@
 | japanese_first_name | string   | null:false |
 | kana_last_name      | string   | null:false |
 | kana_first_name     | string   | null:false |
-| year                | datetime | null:false |
-| month               | datetime | null:false |
-| day                 | datetime | null:false |
+| year_month_day      | datetime | null:false |
 
 ### Association
 
@@ -23,32 +21,31 @@
 
 ## items テーブル
 
-| Column          | Type          | Options    |
-| --------------- | ------------- | ---------- |
-| image           | ActiveStorage |            |
-| item_name       | text          | null:false |
-| item_detail     | text          | null:false |
-| category        | string        | null:false |
-| state           | string        | null:false |
-| shipping_charge | string        | null:false |
-| shipping_area   | string        | null:false |
-| delivery_day    | string        | null:false |
-| price           | string        | null:false |
-| user_id         | reference     |            |
+| Column             | Type          | Options    |
+| ------------------ | ------------- | ---------- |
+| image              | ActiveStorage |            |
+| item_name          | text          | null:false |
+| item_detail        | text          | null:false |
+| category_id        | integer       | null:false |
+| state_id           | integer       | null:false |
+| shipping_charge_id | integer       | null:false |
+| shipping_area_id   | integer       | null:false |
+| delivery_day_id    | integer       | null:false |
+| price              | integer       | null:false |
+| user               | reference     |            |
 
 ### Association
 
 - belongs_to user
 - has_many comments
-- has_one purchases
+- has_one purchase
 
 ## purchases テーブル
 
-| Column              | Type      | Options |
-| ------------------- | --------- | ------- |
-| user_id             | reference |         |
-| item_id             | reference |         |
-| purchase_address_id | reference |         |
+| Column | Type      | Options |
+| ------ | --------- | ------- |
+| user   | reference |         |
+| item   | reference |         |
 
 ### Association
 
@@ -60,12 +57,12 @@
 
 | Column        | Type      | Options    |
 | ------------- | --------- | ---------- |
-| prefecture    | string    | null:false |
+| prefecture_id | integer   | null:false |
 | municipality  | string    | null:false |
 | address       | string    | null:false |
-| building_name | string    | null:false |
+| building_name | string    |            |
 | phone_number  | string    | null:false |
-| purchase_id   | reference |            |
+| purchase      | reference |            |
 
 ### Association
 
@@ -73,11 +70,11 @@
 
 ## comments テーブル
 
-| Column  | Type      | Options    |
-| ------- | --------- | ---------- |
-| text    | text      | null:false |
-| user_id | reference |            |
-| item_id | reference |            |
+| Column | Type      | Options    |
+| ------ | --------- | ---------- |
+| text   | text      | null:false |
+| user   | reference |            |
+| item   | reference |            |
 
 ### Association
 
