@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column              | Type     | Options    |
-| ------------------- | -------- | ---------- |
-| name                | string   | null:false |
-| email               | string   | null:false |
-| password            | string   | null:false |
-| japanese_last_name  | string   | null:false |
-| japanese_first_name | string   | null:false |
-| kana_last_name      | string   | null:false |
-| kana_first_name     | string   | null:false |
-| year_month_day      | datetime | null:false |
+| Column              | Type   | Options    |
+| ------------------- | ------ | ---------- |
+| name                | string | null:false |
+| email               | string | null:false |
+| encrypted_password  | string | null:false |
+| japanese_last_name  | string | null:false |
+| japanese_first_name | string | null:false |
+| kana_last_name      | string | null:false |
+| kana_first_name     | string | null:false |
+| year_month_day      | date   | null:false |
 
 ### Association
 
@@ -21,18 +21,17 @@
 
 ## items テーブル
 
-| Column             | Type          | Options    |
-| ------------------ | ------------- | ---------- |
-| image              | ActiveStorage |            |
-| item_name          | text          | null:false |
-| item_detail        | text          | null:false |
-| category_id        | integer       | null:false |
-| state_id           | integer       | null:false |
-| shipping_charge_id | integer       | null:false |
-| shipping_area_id   | integer       | null:false |
-| delivery_day_id    | integer       | null:false |
-| price              | integer       | null:false |
-| user               | reference     |            |
+| Column             | Type      | Options           |
+| ------------------ | --------- | ----------------- |
+| item_name          | text      | null:false        |
+| item_detail        | text      | null:false        |
+| category_id        | integer   | null:false        |
+| state_id           | integer   | null:false        |
+| shipping_charge_id | integer   | null:false        |
+| prefecture_id      | integer   | null:false        |
+| delivery_day_id    | integer   | null:false        |
+| price              | integer   | null:false        |
+| user               | reference | foreign_key: true |
 
 ### Association
 
@@ -42,10 +41,10 @@
 
 ## purchases テーブル
 
-| Column | Type      | Options |
-| ------ | --------- | ------- |
-| user   | reference |         |
-| item   | reference |         |
+| Column | Type      | Options           |
+| ------ | --------- | ----------------- |
+| user   | reference | foreign_key: true |
+| item   | reference | foreign_key: true |
 
 ### Association
 
@@ -55,26 +54,26 @@
 
 ## purchases_addresses テーブル
 
-| Column        | Type      | Options    |
-| ------------- | --------- | ---------- |
-| prefecture_id | integer   | null:false |
-| municipality  | string    | null:false |
-| address       | string    | null:false |
-| building_name | string    |            |
-| phone_number  | string    | null:false |
-| purchase      | reference |            |
+| Column        | Type      | Options           |
+| ------------- | --------- | ----------------- |
+| prefecture_id | integer   | null:false        |
+| municipality  | string    | null:false        |
+| address       | string    | null:false        |
+| building_name | string    |                   |
+| phone_number  | string    | null:false        |
+| purchase      | reference | foreign_key: true |
 
 ### Association
 
-- belongs_to purchases
+- belongs_to purchase
 
 ## comments テーブル
 
-| Column | Type      | Options    |
-| ------ | --------- | ---------- |
-| text   | text      | null:false |
-| user   | reference |            |
-| item   | reference |            |
+| Column | Type      | Options           |
+| ------ | --------- | ----------------- |
+| text   | text      | null:false        |
+| user   | reference | foreign_key: true |
+| item   | reference | foreign_key: true |
 
 ### Association
 
