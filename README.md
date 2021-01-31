@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column              | Type   | Options    |
-| ------------------- | ------ | ---------- |
-| name                | string | null:false |
-| email               | string | null:false |
-| encrypted_password  | string | null:false |
-| japanese_last_name  | string | null:false |
-| japanese_first_name | string | null:false |
-| kana_last_name      | string | null:false |
-| kana_first_name     | string | null:false |
-| year_month_day      | date   | null:false |
+| Column              | Type   | Options                |
+| ------------------- | ------ | ---------------------- |
+| name                | string | null:false             |
+| email               | string | unique:true,null:false |
+| encrypted_password  | string | null:false             |
+| japanese_last_name  | string | null:false             |
+| japanese_first_name | string | null:false             |
+| kana_last_name      | string | null:false             |
+| kana_first_name     | string | null:false             |
+| year_month_day      | date   | null:false             |
 
 ### Association
 
@@ -23,7 +23,7 @@
 
 | Column             | Type      | Options           |
 | ------------------ | --------- | ----------------- |
-| item_name          | text      | null:false        |
+| item_name          | string    | null:false        |
 | item_detail        | text      | null:false        |
 | category_id        | integer   | null:false        |
 | state_id           | integer   | null:false        |
@@ -56,6 +56,7 @@
 
 | Column        | Type      | Options           |
 | ------------- | --------- | ----------------- |
+| postal_code   | string    | null:false        |
 | prefecture_id | integer   | null:false        |
 | municipality  | string    | null:false        |
 | address       | string    | null:false        |
