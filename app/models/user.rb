@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-        #  validates presence:true :email, format: { with: /\A\S+@\S+\.\S+\z/}
         PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,100}\z/.freeze
         validates_format_of  :password, presence: true, with: PASSWORD_REGEX, message: 'Password is invalid' 
         
