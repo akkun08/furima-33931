@@ -22,7 +22,6 @@ class User < ApplicationRecord
           validates :year_month_day 
           validates :name,length: { maximum: 6 }
       end
-    end
 
   has_many :items
   has_many :comments
