@@ -5,7 +5,7 @@ class User < ApplicationRecord
         PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,100}\z/.freeze
         validates_format_of  :password, presence: true, with: PASSWORD_REGEX, message: 'Password is invalid' 
         
-      width_options presence: true do
+      with_options presence: true do
         with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'Full-width characters' } do
           validates :japanese_last_name
           validates :japanese_first_name
