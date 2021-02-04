@@ -35,56 +35,56 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include("Item detail can't be blank")
         end
-        it ' categoryの数字が1は保存できない' do
-          @item.category_id = 1
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Category must be greater than or equal to 2", "Category must be other than 1")
-        end
-        it ' categoryの数字が12以上は保存できない' do
-          @item.category_id = 12
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Category must be less than or equal to 11")
-        end
-        it 'shipping_charge_idの数字が1は保存できない ' do
-          @item.shipping_charge_id = 1
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping charge must be greater than or equal to 2", "Shipping charge must be other than 1")
-        end
-        it 'shipping_charge_idの数字が4以上は保存できない ' do
-          @item.shipping_charge_id = 4
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping charge must be less than or equal to 3")
-        end
-        it 'prefecture_idの数字が1は保存できない ' do
-          @item.prefecture_id = 1
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Prefecture must be greater than or equal to 2", "Prefecture must be other than 1")
-        end
-        it 'prefecture_idの数字が49以上は保存できない ' do
-          @item.prefecture_id = 49
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Prefecture must be less than or equal to 48")
-        end
-        it 'state_idの数字が1は保存できない ' do
-          @item.state_id = 1
-          @item.valid?
-          expect(@item.errors.full_messages).to include("State must be greater than or equal to 2", "State must be other than 1")
-        end
-        it 'state_idの数字が8以上は保存できない ' do
-          @item.state_id = 8
-          @item.valid?
-          expect(@item.errors.full_messages).to include("State must be less than or equal to 7")
-        end
-        it 'delivery_idの数字が1は保存できない ' do
-          @item.delivery_id = 1
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Delivery must be greater than or equal to 2", "Delivery must be other than 1")
-        end
-        it 'delivery_idの数字が5は保存できない ' do
-          @item.delivery_id = 5
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Delivery must be less than or equal to 4")
-        end
+        # it ' categoryの数字が1は保存できない' do
+        #   @item.category_id = 1
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Category must be greater than or equal to 2", "Category must be other than 1")
+        # end
+        # it ' categoryの数字が12以上は保存できない' do
+        #   @item.category_id = 12
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Category must be less than or equal to 11")
+        # end
+        # it 'shipping_charge_idの数字が1は保存できない ' do
+        #   @item.shipping_charge_id = 1
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Shipping charge must be greater than or equal to 2", "Shipping charge must be other than 1")
+        # end
+        # it 'shipping_charge_idの数字が4以上は保存できない ' do
+        #   @item.shipping_charge_id = 4
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Shipping charge must be less than or equal to 3")
+        # end
+        # it 'prefecture_idの数字が1は保存できない ' do
+        #   @item.prefecture_id = 1
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Prefecture must be greater than or equal to 2", "Prefecture must be other than 1")
+        # end
+        # it 'prefecture_idの数字が49以上は保存できない ' do
+        #   @item.prefecture_id = 49
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Prefecture must be less than or equal to 48")
+        # end
+        # it 'state_idの数字が1は保存できない ' do
+        #   @item.state_id = 1
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("State must be greater than or equal to 2", "State must be other than 1")
+        # end
+        # it 'state_idの数字が8以上は保存できない ' do
+        #   @item.state_id = 8
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("State must be less than or equal to 7")
+        # end
+        # it 'delivery_idの数字が1は保存できない ' do
+        #   @item.delivery_id = 1
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Delivery must be greater than or equal to 2", "Delivery must be other than 1")
+        # end
+        # it 'delivery_idの数字が5は保存できない ' do
+        #   @item.delivery_id = 5
+        #   @item.valid?
+        #   expect(@item.errors.full_messages).to include("Delivery must be less than or equal to 4")
+        # end
         it 'priceが299以下は保存できない ' do
           @item.price = 299
           @item.valid?
