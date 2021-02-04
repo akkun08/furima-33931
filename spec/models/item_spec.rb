@@ -85,6 +85,7 @@ RSpec.describe Item, type: :model do
         #   @item.valid?
         #   expect(@item.errors.full_messages).to include("Delivery must be less than or equal to 4")
         # end
+        
         it 'priceが299以下は保存できない ' do
           @item.price = 299
           @item.valid?
