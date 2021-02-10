@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def cannot_transition
-    unless @item.user_id == current_user.id
+    unless @item.purchase.blank? && (@item.user_id == current_user.id)
       redirect_to action: :index
     end
   end

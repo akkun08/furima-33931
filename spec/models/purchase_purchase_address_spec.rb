@@ -4,7 +4,7 @@ RSpec.describe PurchasePurchaseAddress, type: :model do
   describe '商品購入の値の保存' do
     before do
       user = FactoryBot.create(:user)
-      @ppa = FactoryBot.build(:purchase_purchase_address, user_id: user.id)
+      @ppa = FactoryBot.build(:j, user_id: user.id)
     end
 
     it 'すべての値が入力できると保存できる' do
