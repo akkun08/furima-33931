@@ -24,7 +24,7 @@ RSpec.describe PurchasePurchaseAddress, type: :model do
     it 'prefecture_idを選択していないと保存できないこと' do
       @ppa.prefecture_id  = 0
       @ppa.valid?
-      expect(@ppa.errors.full_messages).to include("Prefecture can't be blank")
+      expect(@ppa.errors.full_messages).to include("Prefecture can't be blank" )
     end
     it 'municipalityは空でも保存できないこと' do
       @ppa.municipality  = ""
@@ -54,6 +54,11 @@ RSpec.describe PurchasePurchaseAddress, type: :model do
       @ppa.valid?
       expect(@ppa.errors.full_messages).to include("Phone number is invalid")
       
+    end
+    it "tokenが空では登録できないこと" do
+      @ppa.token = nil
+      @ppa.valid?
+      expect(@ppa.errors.full_messages).to include("Token can't be blank")
     end
     
   end
