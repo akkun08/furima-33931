@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
   before_action :find_params, only: [:show, :update, :edit, :destroy]
-  before_action :cannot_transition, only: [:edit, :destroy]
+  before_action :cannot_transition, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def cannot_transition
-    unless @item.user_id == current_user.id
+    unless @item.purchase.blank? && (@item.user_id == current_user.id)
       redirect_to action: :index
     end
   end
