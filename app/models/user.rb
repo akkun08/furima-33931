@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-        PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,100}\z/.freeze
+        PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i.freeze
         validates_format_of  :password, presence: true, with: PASSWORD_REGEX, message: 'Password is invalid' 
         
       with_options presence: true do
@@ -17,7 +17,7 @@ class User < ApplicationRecord
         end
 
           validates :year_month_day 
-          validates :name,length: { maximum: 6 }
+          validates :name
       end
 
   has_many :items
